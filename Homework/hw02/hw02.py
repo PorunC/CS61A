@@ -64,7 +64,10 @@ def product(n, term):
     162
     """
     "*** YOUR CODE HERE ***"
-
+    res = 1
+    for i in range(1, n + 1):
+        res = term(i) * res
+    return res
 
 def accumulate(merger, start, n, term):
     """Return the result of merging the first n terms in a sequence and start.
