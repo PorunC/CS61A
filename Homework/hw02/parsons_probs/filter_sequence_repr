@@ -1,0 +1,12 @@
+def filter_sequence(cond, start, stop): #0given
+!BLANK = 0  #1given #blankres
+while !BLANK:  #1given #blankstart <= stop
+if !BLANK(!BLANK):  #2given #blankcond #blankstart
+!BLANK += !BLANK  #3given #blankres #blankstart
+!BLANK += !BLANK  #2given #blankstart #blank1
+return !BLANK  #1given #blankres
+!BLANK = !BLANK
+print('DEBUG:', !BLANK)
+print('DEBUG:', !BLANK)
+# !BLANK
+# !BLANK

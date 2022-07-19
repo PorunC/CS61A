@@ -7,36 +7,16 @@ OK, version v1.18.1
 Running tests
 
 ---------------------------------------------------------------------
-Doctests for count_until_larger
+Doctests for filter_sequence
 
->>> count_until_larger(117) # .Case 1
--1
+>>> filter_sequence(lambda x: x % 2 == 0, 0, 10) # .Case 1
+30
 :D Test Case 1 passed
 ---------------------------------------------------------------------
 
->>> count_until_larger(8117) # .Case 2
-3
+>>> filter_sequence(lambda x: x % 2 == 1, 0, 10) # .Case 2
+25
 :D Test Case 2 passed
----------------------------------------------------------------------
-
->>> count_until_larger(9118117) # .Case 3
-3
-:D Test Case 3 passed
----------------------------------------------------------------------
-
->>> count_until_larger(8777)  # .Case 4
-3
-:D Test Case 4 passed
----------------------------------------------------------------------
-
->>> count_until_larger(22) # .Case 5
--1
-:D Test Case 5 passed
----------------------------------------------------------------------
-
->>> count_until_larger(0) # .Case 6
--1
-:D Test Case 6 passed
 ---------------------------------------------------------------------
 
 -- OK! --
@@ -45,7 +25,7 @@ Test summary
     1 test cases passed! No cases failed.
 
 Backup... 0.0% completeBackup... 100% complete
-[31mBackup past deadline by 165 days, 4 hours, 54 minutes, and 39 seconds[0m
+[31mBackup past deadline by 165 days, 8 hours, 16 minutes, and 37 seconds[0m
 [32mBackup successful for user: chenborun1101@gmail.com[0m
-[32mURL: https://okpy.org/cal/cs61a/sp22/hw02/backups/V5ZvJM[0m
+[32mURL: https://okpy.org/cal/cs61a/sp22/hw02/backups/RMBlJw[0m
 
