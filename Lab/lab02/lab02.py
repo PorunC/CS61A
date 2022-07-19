@@ -56,6 +56,15 @@ def count_cond(condition):
     8
     """
     "*** YOUR CODE HERE ***"
+    def counter(n):
+        i = 1
+        cnt = 0
+        while i <= n:
+            if condition(n, i):
+                cnt = cnt + 1
+            i += 1
+        return cnt
+    return counter
 
 
 def composer(f, g):
