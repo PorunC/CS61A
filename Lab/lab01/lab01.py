@@ -11,6 +11,12 @@ def falling(n, k):
     1
     """
     "*** YOUR CODE HERE ***"
+    res = 1
+    while k:
+        res = res * n
+        n = n - 1
+        k = k - 1
+    return res
 
 
 def sum_digits(y):
