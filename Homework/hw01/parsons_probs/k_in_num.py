@@ -13,4 +13,10 @@ def k_in_num(k, num):
     >>> k_in_num(0, 0) # .Case 4
     False
     """
-    "*** YOUR CODE HERE ***"
+    while num:
+        if k == num % 10:
+            return True
+        num = num // 10
+    return False
+
+
