@@ -130,3 +130,11 @@ def cycle(f1, f2, f3):
     19
     """
     "*** YOUR CODE HERE ***"
+    return lambda n: (lambda x: cycle(f2, f3, f1)(n - 1)(f1(x)) if n > 0 else x)
+    # def ref_fn(n):
+    #     def ret(x):
+    #         if n == 0:
+    #             return x
+    #         return cycle(f2, f3, f1)(n - 1)(f1(x))
+    #     return ret
+    # return ref_fn
