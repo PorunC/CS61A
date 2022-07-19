@@ -1,0 +1,6 @@
+.DS_Store
+**/__pychache__/
+**/.ok_history
+**/.ok_messages
+*.db
+*.pyc
