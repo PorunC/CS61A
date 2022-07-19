@@ -4,3 +4,4 @@
 **/.ok_messages
 *.db
 *.pyc
+.ok_storage
