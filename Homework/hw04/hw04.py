@@ -10,25 +10,42 @@ def merge(lst1, lst2):
     >>> merge([5, 7], [2, 4, 6])
     [2, 4, 5, 6, 7]
     """
-    idx1, idx2 = 0, 0
-    res = []
-    while idx1 < len(lst1) and idx2 < len(lst2):
-        if lst1[idx1] < lst2[idx2]:
-            res.append(lst1[idx1])
-            idx1 += 1
+    def helper(lst1, n, lst2, m):
+        if n == 0:
+            return lst2
+        if m == 0:
+            return lst1
+        
+        res = []    
+        if lst1[0] < lst2[0]:
+            res.append(lst1[0])
+            res.extend(helper(lst1[1:], n - 1, lst2, m))
         else:
-            res.append(lst2[idx2])
-            idx2 += 1
+            res.append(lst2[0])
+            res.extend(helper(lst1, n, lst2[1:], m - 1))
+        return res
     
-    while idx1 < len(lst1):
-        res.append(lst1[idx1])
-        idx1 += 1
+    return helper(lst1, len(lst1), lst2, len(lst2))
     
-    while idx2 < len(lst2):
-        res.append(lst2[idx2])
-        idx2 += 1
+    # idx1, idx2 = 0, 0
+    # res = []
+    # while idx1 < len(lst1) and idx2 < len(lst2):
+    #     if lst1[idx1] < lst2[idx2]:
+    #         res.append(lst1[idx1])
+    #         idx1 += 1
+    #     else:
+    #         res.append(lst2[idx2])
+    #         idx2 += 1
     
-    return res
+    # while idx1 < len(lst1):
+    #     res.append(lst1[idx1])
+    #     idx1 += 1
+    
+    # while idx2 < len(lst2):
+    #     res.append(lst2[idx2])
+    #     idx2 += 1
+    
+    # return res
 
 
 class Mint:
