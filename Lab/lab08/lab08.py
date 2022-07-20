@@ -311,14 +311,25 @@ class PairsIterator:
     """
 
     def __init__(self, lst):
-        "*** YOUR CODE HERE ***"
+        self.pair_list = []
+        self.curr = 0
+        for x in lst:
+            for y in lst:
+                item = [x, y]
+                self.pair_list.append(item)
+            
 
     def __next__(self):
-        "*** YOUR CODE HERE ***"
+        if self.curr < len(self.pair_list):
+            res = self.pair_list[self.curr]
+            self.curr += 1
+            return res[0], res[1]
+        else:
+            self.curr = 0
+            raise StopIteration
 
     def __iter__(self):
-        "*** YOUR CODE HERE ***"
-
+        return self
 
 def long_paths(tree, n):
     """Return a list of all paths in tree with length at least n.
