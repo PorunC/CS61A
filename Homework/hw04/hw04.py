@@ -10,7 +10,25 @@ def merge(lst1, lst2):
     >>> merge([5, 7], [2, 4, 6])
     [2, 4, 5, 6, 7]
     """
-    "*** YOUR CODE HERE ***"
+    idx1, idx2 = 0, 0
+    res = []
+    while idx1 < len(lst1) and idx2 < len(lst2):
+        if lst1[idx1] < lst2[idx2]:
+            res.append(lst1[idx1])
+            idx1 += 1
+        else:
+            res.append(lst2[idx2])
+            idx2 += 1
+    
+    while idx1 < len(lst1):
+        res.append(lst1[idx1])
+        idx1 += 1
+    
+    while idx2 < len(lst2):
+        res.append(lst2[idx2])
+        idx2 += 1
+    
+    return res
 
 
 class Mint:
