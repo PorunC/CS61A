@@ -51,7 +51,28 @@ def merge(incr_a, incr_b):
     """
     iter_a, iter_b = iter(incr_a), iter(incr_b)
     next_a, next_b = next(iter_a, None), next(iter_b, None)
-    "*** YOUR CODE HERE ***"
+    
+    while next_a is not None and next_b is not None:
+        val_a, val_b = next_a, next_b
+        if val_a == val_b:
+            yield next_a
+            next_a, next_b = next(iter_a, None), next(iter_b, None)
+        elif val_a < val_b:
+            yield next_a
+            next_a = next(iter_a, None)
+        else:
+            yield next_b
+            next_b = next(iter_b, None)
+            
+    # incr_a is not empty
+    while next_a:
+        yield next_a
+        next_a = next(iter_a, None)
+    
+    # incr_b is not empty
+    while next_b:
+        yield next_b
+        next_b = next(iter_b, None)
 
 
 def deep_len(lnk):
