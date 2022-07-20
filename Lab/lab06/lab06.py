@@ -36,7 +36,9 @@ class Cat:
         """
         cat_names = ["Felix", "Bugs", "Grumpy"]
         "*** YOUR CODE HERE ***"
-        return cls(____, ____, ____)
+        cat_name = cat_names[len(owner) % 3]
+        lives = len(owner) + len(cat_name)
+        return cls(cat_name, owner, lives)
 
 
 class Account:
