@@ -60,7 +60,14 @@ def pingpong(n):
     ...       ['Assign', 'AnnAssign', 'AugAssign', 'NamedExpr'])
     True
     """
-    "*** YOUR CODE HERE ***"
+    def helper(res, cur, step):
+        if cur == n:
+            return res
+        if cur % 8 == 0 or num_eights(cur) > 0:
+            return helper(res - step, cur + 1, -step)
+        else:
+            return helper(res + step, cur + 1, step)
+    return helper(1, 1, 1)
 
 
 def get_larger_coin(coin):
