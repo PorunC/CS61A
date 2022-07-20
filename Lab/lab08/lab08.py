@@ -155,7 +155,20 @@ def add_d_leaves(t, v):
           10
         10
     """
-    "*** YOUR CODE HERE ***"
+    
+    def dfs(root, depth, v):
+        if root.is_leaf():
+            for _ in range(depth):
+                root.branches.append(Tree(v))
+            return
+
+        for b in root.branches:
+            dfs(b, depth + 1, v)
+        
+        for _ in range(depth):
+            root.branches.append(Tree(v))
+
+    dfs(t, 0, v)
 
 
 def insert_into_all(item, nested_list):
