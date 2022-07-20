@@ -35,7 +35,6 @@ class Cat:
         8
         """
         cat_names = ["Felix", "Bugs", "Grumpy"]
-        "*** YOUR CODE HERE ***"
         cat_name = cat_names[len(owner) % 3]
         lives = len(owner) + len(cat_name)
         return cls(cat_name, owner, lives)
@@ -81,7 +80,12 @@ class Account:
     def time_to_retire(self, amount):
         """Return the number of years until balance would grow to amount."""
         assert self.balance > 0 and amount > 0 and self.interest > 0
-        "*** YOUR CODE HERE ***"
+        cnt = 0
+        deposit = self.balance * ((1 + self.interest) ** cnt)
+        while deposit < amount:
+            cnt = cnt + 1
+            deposit = self.balance * ((1 + self.interest) ** cnt)
+        return cnt
 
 
 class FreeChecking(Account):
