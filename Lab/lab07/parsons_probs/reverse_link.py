@@ -14,7 +14,11 @@ def reverse_link(lnk):
     >>> k
     Link(3, Link(5, Link(7, Link(9))))
     """
-    "*** YOUR CODE HERE ***"
+    result = Link.empty
+    while lnk:
+        result = Link(lnk.first, result)
+        lnk = lnk.rest
+    return result
 
 
 class Link:
