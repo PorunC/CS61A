@@ -181,11 +181,13 @@ def insert_into_all(item, nested_list):
     [[0], [0, 1, 2], [0, 3]]
     """
     
-    for item_list in nested_list:
-        if type(item_list) == list:
-            item_list.insert(0, item)
+    return [[item] + l for l in nested_list]
     
-    return nested_list
+    # for item_list in nested_list:
+    #     if type(item_list) == list:
+    #         item_list.insert(0, item)
+    
+    # return nested_list
 
 
 def subseqs(s):
