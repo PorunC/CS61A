@@ -70,7 +70,14 @@ def duplicate_link(lnk, val):
     >>> y
     Link(2, Link(4, Link(6, Link(8))))
     """
-    "*** YOUR CODE HERE ***"
+    
+    def duplicate(lnk, val):
+        new_lnk = Link(val, lnk)
+        return new_lnk
+
+    if int(lnk.first) == val:
+        new_lnk = duplicate(lnk.rest, val)
+        lnk.rest = new_lnk
 
 
 def deep_map_mut(fn, lnk):
