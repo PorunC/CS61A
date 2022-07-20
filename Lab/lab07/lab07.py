@@ -14,7 +14,12 @@ def store_digits(n):
     >>> print("Do not use str or reversed!") if any([r in cleaned for r in ["str", "reversed"]]) else None
     >>> link1 = Link(3, Link(Link(4), Link(5, Link(6))))
     """
-    "*** YOUR CODE HERE ***"
+    
+    res = Link.empty
+    while n:
+        res = Link(n % 10, res)
+        n = n // 10
+    return res
 
 
 def cumulative_mul(t):
