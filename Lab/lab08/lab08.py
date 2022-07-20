@@ -361,20 +361,25 @@ def flip_two(s):
     Link(2, Link(1, Link(4, Link(3, Link(5)))))
     """
     
-    if s is Link.empty:
-        return
-    elif s.rest is Link.empty:
-        return
+    # if s is Link.empty:
+    #     return
+    # elif s.rest is Link.empty:
+    #     return
     
-    cur = s
-    rest = s.rest
-    tmp = cur.first
-    cur.first = rest.first
-    rest.first = tmp
-    flip_two(s.rest.rest)
+    # cur = s
+    # rest = s.rest
+    # tmp = cur.first
+    # cur.first = rest.first
+    # rest.first = tmp
+    # flip_two(s.rest.rest)
 
     # For an extra challenge, try writing out an iterative approach as well below!
-    "*** YOUR CODE HERE ***"
+    cur = s
+    while cur.rest is not Link.empty and cur is not Link.empty:
+        tmp = cur.first
+        cur.first = cur.rest.first
+        cur.rest.first = tmp
+        cur = cur.rest.rest
 
 
 class Link:
