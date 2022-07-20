@@ -114,4 +114,21 @@ class FreeChecking(Account):
     withdraw_fee = 1
     free_withdrawals = 2
 
-    "*** YOUR CODE HERE ***"
+    def __init__(self, Account):
+        Account.__init__(self)
+
+    def withdraw(self, amount):
+        if amount + self.withdraw_fee > self.balance:
+            return "Insufficient funds"
+        if amount > self.max_withdrawal:
+            return "Can't withdraw that amount"
+        
+        
+        if self.free_withdrawals > 0: 
+            self.free_withdrawals -= 1
+        
+        self.balance = self.balance - amount
+        if self.free_withdrawals <= 0:
+            self.balance = self.balance - self.withdraw_fee
+        
+        return self.balance
