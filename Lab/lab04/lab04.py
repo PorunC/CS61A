@@ -57,4 +57,11 @@ def pascal(row, column):
     >>> pascal(4, 2)     # Row 4 (1 4 6 4 1), Column 2
     6
     """
-    "*** YOUR CODE HERE ***"
+    if row == 0 and column == 0:
+        return 1
+    elif column == 0 or column == row:
+        return 1
+    elif column > row:
+        return 0
+    else:
+        return pascal(row - 1, column - 1) + pascal(row - 1, column)
