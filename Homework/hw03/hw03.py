@@ -22,7 +22,9 @@ def num_eights(pos):
     ...       ['Assign', 'AnnAssign', 'AugAssign', 'NamedExpr'])
     True
     """
-    "*** YOUR CODE HERE ***"
+    if(pos < 10):
+        return int(pos == 8)
+    return int(pos % 10 == 8) + num_eights(pos // 10)
 
 
 def pingpong(n):
