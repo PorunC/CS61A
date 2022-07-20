@@ -80,7 +80,17 @@ def has_cycle_constant(link):
     >>> has_cycle_constant(t)
     False
     """
-    "*** YOUR CODE HERE ***"
+    
+    slow = link
+    fast = link
+    while fast is not Link.empty:
+        if fast.rest is Link.empty:
+            return False
+        slow = slow.rest
+        fast = fast.rest.rest
+        if slow is fast:
+            return True
+    return False
 
 
 class Link:
