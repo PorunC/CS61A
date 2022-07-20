@@ -201,6 +201,11 @@ def subseqs(s):
     [[]]
     """
     
+    if len(s) <= 1:
+        return [[], s] if s !=[] else [[]]
+    else:
+        tmp = subseqs(s[1:])
+        return insert_into_all(s[0], tmp) + tmp
 
 
 def non_decrease_subseqs(s):
