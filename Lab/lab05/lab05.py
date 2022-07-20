@@ -39,7 +39,11 @@ def couple(s, t):
     [['c', 's'], [6, '1']]
     """
     assert len(s) == len(t)
-    "*** YOUR CODE HERE ***"
+    res = []
+    for i in range(len(s)):
+        item = [s[i], t[i]]
+        res.append(item)
+    return res
 
 
 def insert_items(lst, entry, elem):
