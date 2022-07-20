@@ -1,0 +1,29 @@
+=====================================================================
+Assignment: Homework 5
+OK, version v1.18.1
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Doctests for flatten_link
+
+>>> link = Link(1, Link(2, Link(3, Link(4))))
+>>> flatten_link(link)
+[1, 2, 3, 4]
+>>> flatten_link(Link.empty)
+[]
+>>> deep_link = Link(Link(1, Link(2, Link(3, Link(4)))), Link(Link(5), Link(6)))
+>>> flatten_link(deep_link)
+[1, 2, 3, 4, 5, 6]
+-- OK! --
+---------------------------------------------------------------------
+Test summary
+    1 test cases passed! No cases failed.
+
+Backup... 0.0% completeBackup... 100% complete
+[31mBackup past deadline by 126 days, 1 hour, 48 minutes, and 15 seconds[0m
+[32mBackup successful for user: chenborun1101@gmail.com[0m
+[32mURL: https://okpy.org/cal/cs61a/sp22/hw05/backups/lv6Mp1[0m
+
