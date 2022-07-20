@@ -180,7 +180,7 @@ def insert_into_all(item, nested_list):
     >>> insert_into_all(0, nl)
     [[0], [0, 1, 2], [0, 3]]
     """
-    "*** YOUR CODE HERE ***"
+    
 
 
 def subseqs(s):
@@ -193,11 +193,7 @@ def subseqs(s):
     >>> subseqs([])
     [[]]
     """
-    if ________________:
-        ________________
-    else:
-        ________________
-        ________________
+    
 
 
 def non_decrease_subseqs(s):
@@ -277,7 +273,10 @@ def pairs(lst):
     5 4
     5 5
     """
-    "*** YOUR CODE HERE ***"
+    
+    for x in lst:
+        for y in lst:
+            yield x, y
 
 
 class PairsIterator:
