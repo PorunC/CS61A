@@ -123,4 +123,14 @@ def count_coins(change):
     >>> check(HW_SOURCE_FILE, 'count_coins', ['While', 'For'])
     True
     """
-    "*** YOUR CODE HERE ***"
+    def dfs(change, curr):
+        if change == 0:
+            return 1
+        elif change < 0 or curr == None:
+            return 0
+
+        with_cur = dfs(change - curr, curr)
+        without_cur = dfs(change, get_larger_coin(curr))
+        
+        return with_cur + without_cur
+    return dfs(change, 1)
