@@ -17,7 +17,13 @@ def flatten(s):
     >>> x
     [[1, [1, 1]], 1, [1, 1]]
     """
-    "*** YOUR CODE HERE ***"
+    res = []
+    for item in s:
+        if type(item) == list:
+            res.extend(flatten(item))
+        else:
+            res.append(item)
+    return res
 
 
 def couple(s, t):
