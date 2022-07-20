@@ -59,7 +59,14 @@ def has_cycle(link):
     >>> has_cycle(u)
     False
     """
-    "*** YOUR CODE HERE ***"
+    
+    links = []
+    while link is not Link.empty:
+        if link in links:
+            return True
+        links.append(link)
+        link = link.rest
+    return False
 
 
 def has_cycle_constant(link):
