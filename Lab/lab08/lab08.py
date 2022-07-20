@@ -20,7 +20,16 @@ def repeated(t, k):
     2
     """
     assert k > 1
-    "*** YOUR CODE HERE ***"
+    
+    cnt, prev = 1, next(t)
+    for item in t:
+        if item == prev:
+            cnt += 1
+            if cnt == k:
+                return item
+        else:
+            cnt = 1
+        prev = item
 
 
 def merge(incr_a, incr_b):
