@@ -1,3 +1,6 @@
+from re import L
+
+
 def repeated(t, k):
     """Return the first value in iterator T that appears K times in a row.
     Iterate through the items such that if the same iterator is passed into
@@ -346,7 +349,59 @@ def long_paths(tree, n):
     >>> long_paths(whole, 4)
     [Link(0, Link(11, Link(12, Link(13, Link(14)))))]
     """
-    "*** YOUR CODE HERE ***"
+    
+    def convert(path):
+        node = Link(path[0])
+        head = node
+        for i in range(1, len(path)):
+            node.rest = Link(path[i])
+            node = node.rest
+        return head
+
+    path_list = []
+    def find_path(node, path, len):
+        nonlocal path_list
+        
+        if node.is_leaf():
+            path.append(node.label)
+            
+            if len >= n:
+                path_list.append(convert(path))
+            
+            path.pop()
+            
+            return
+        
+        path.append(node.label)
+        for b in node.branches:
+            find_path(b, path, len + 1)
+        path.pop()
+        
+    find_path(tree, [], 0)
+    return path_list
+    
+    # path_list = []
+    # def find_path(node, path, len):
+    #     nonlocal path_list
+        
+    #     if node.is_leaf():
+    #         path.append(node.label)
+            
+    #         if len >= n:
+    #             path_list.append(path[:])
+            
+    #         path.pop()
+            
+    #         return
+        
+    #     path.append(node.label)
+    #     for b in node.branches:
+    #         find_path(b, path, len + 1)
+    #     path.pop()
+        
+    # find_path(tree, [], 0)
+    # return path_list
+
 
 
 def flip_two(s):
