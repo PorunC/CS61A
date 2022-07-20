@@ -17,4 +17,8 @@ def replace_elements(source_list, dest_list):
     >>> s3
     [5, 4, 3, 0, 0]
     """
-    "*** YOUR CODE HERE ***"
+    for i in range(len(source_list)):
+        dest_list[i] = source_list[i]
+    print('DEBUG:', dest_list)
+
+
