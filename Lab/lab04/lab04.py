@@ -37,7 +37,12 @@ def paths(m, n):
     >>> paths(1, 157)
     1
     """
-    "*** YOUR CODE HERE ***"
+    if m == 1 and n == 1:
+        return 1
+    elif m == 0 or n == 0:
+        return 0
+    else:
+        return paths(m - 1, n) + paths(m, n - 1)
 
 
 def pascal(row, column):
