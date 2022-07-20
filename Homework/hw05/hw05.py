@@ -97,7 +97,13 @@ def deep_map_mut(fn, lnk):
     >>> print(link1)
     <9 <16> 25 36>
     """
-    "*** YOUR CODE HERE ***"
+    
+    while lnk:
+        if isinstance(lnk.first, Link):
+            deep_map_mut(fn, lnk.first)
+        else:
+            lnk.first = fn(lnk.first)
+        lnk = lnk.rest
 
 
 class Tree:
