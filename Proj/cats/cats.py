@@ -252,7 +252,8 @@ def minimum_mewtations(start, goal, limit):
 def final_diff(start, goal, limit):
     """A diff function that takes in a string START, a string GOAL, and a number LIMIT.
     If you implement this function, it will be used."""
-    assert False, 'Remove this line to use your final_diff function.'
+    # assert False, 'Remove this line to use your final_diff function.'
+    return minimum_mewtations(start, goal, limit)
 
 
 FINAL_DIFF_LIMIT = 6  # REPLACE THIS WITH YOUR LIMIT
