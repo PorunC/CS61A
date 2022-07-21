@@ -166,7 +166,8 @@ class AICard(Card):
         True
         """
         # BEGIN Problem 3
-        "*** YOUR CODE HERE ***"
+        player.draw()
+        player.draw()
         # END Problem 3
         # You should add your implementation above this.
         print(f"{self.name} allows me to draw two cards!")
