@@ -181,6 +181,12 @@ class AICard(Card):
 
 class TutorCard(Card):
     cardtype = 'Tutor'
+    
+    def power(self, opponent_card):
+        """
+        Power is the same as original card.
+        """
+        return -float('inf')
 
     def effect(self, opponent_card, player, opponent):
         """
@@ -210,7 +216,9 @@ class TutorCard(Card):
         True
         """
         # BEGIN Problem 4
-        added = None
+        added = player.hand[0] if len(player.hand) > 0 else None
+        if added:
+            player.hand.append(added.copy())
         # END Problem 4
         # You should add your implementation above this.
         if added:
