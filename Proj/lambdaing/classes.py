@@ -258,6 +258,14 @@ class TACard(Card):
         """
         # BEGIN Problem 5
         best_card = None
+        for card in player.hand:
+            if best_card is None or card.power(opponent_card) > best_card.power(opponent_card):
+                best_card = card
+        
+        if best_card:
+            player.hand.remove(best_card)
+            self.attack += best_card.attack
+        
         # END Problem 5
         if best_card:
             print(f"{self.name} discards {best_card.name} from my hand to increase its own power!")
