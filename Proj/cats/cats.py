@@ -93,7 +93,17 @@ def accuracy(typed, reference):
     typed_words = split(typed)
     reference_words = split(reference)
     # BEGIN PROBLEM 3
-    "*** YOUR CODE HERE ***"
+    if len(typed_words) == len(reference_words) == 0:
+        return 100.0
+    elif len(typed_words) == 0:
+        return 0.0
+    
+    correct = 0
+    for x, y in zip(typed_words, reference_words):
+        if x == y:
+            correct += 1
+    
+    return correct / len(typed_words) * 100.0
     # END PROBLEM 3
 
 
