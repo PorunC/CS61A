@@ -46,7 +46,7 @@ class Card:
         -100
         """
         # BEGIN Problem 1
-        "*** YOUR CODE HERE ***"
+        return self.attack - opponent_card.defense
         # END Problem 1
 
     def effect(self, opponent_card, player, opponent):
