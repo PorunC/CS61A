@@ -24,7 +24,9 @@ class Card:
         500
         """
         # BEGIN Problem 1
-        "*** YOUR CODE HERE ***"
+        self.name = name
+        self.attack = attack
+        self.defense = defense
         # END Problem 1
 
     def power(self, opponent_card):
