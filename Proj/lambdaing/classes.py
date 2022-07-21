@@ -305,6 +305,15 @@ class InstructorCard(Card):
         """
         # BEGIN Problem 6
         readd = None
+    
+        self.attack -= 1000
+        self.defense -= 1000
+    
+        if self.attack >= 0 and self.defense >= 0:
+            readd = self.copy()
+        
+        if readd:
+            player.hand.append(readd)
         # END Problem 6
         # You should add your implementation above this.
         if readd:
