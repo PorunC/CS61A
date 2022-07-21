@@ -30,7 +30,15 @@ def choose(paragraphs, select, k):
     ''
     """
     # BEGIN PROBLEM 1
-    "*** YOUR CODE HERE ***"
+    idx = 0
+    cnt = -1
+    while idx < len(paragraphs):
+        if select(paragraphs[idx]):
+            cnt += 1
+        if cnt == k:
+            return paragraphs[idx]
+        idx += 1
+    return ''
     # END PROBLEM 1
 
 
