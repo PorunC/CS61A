@@ -317,7 +317,16 @@ def time_per_word(words, times_per_player):
     [[6, 3, 6, 2], [10, 6, 1, 2]]
     """
     # BEGIN PROBLEM 9
-    "*** YOUR CODE HERE ***"
+    match = {}
+    match["words"] = words
+    times = []
+    for i in range(len(times_per_player)):
+        times.append([])
+        for j in range(len(times_per_player[i]) - 1):
+            times[i].append(times_per_player[i][j + 1] - times_per_player[i][j])
+    
+    match["times"] = times
+    return match
     # END PROBLEM 9
 
 
