@@ -187,7 +187,20 @@ def sphinx_swaps(start, goal, limit):
     5
     """
     # BEGIN PROBLEM 6
-    assert False, 'Remove this line'
+    def counts(curr_start, curr_goal, cnt):
+        if cnt > limit:
+            return limit + 1
+        
+        if not curr_start and not curr_goal:
+            return cnt
+        elif not curr_start or not curr_goal:
+            return counts(curr_start[1:], curr_goal[1:], cnt + 1)
+        elif curr_start[0] == curr_goal[0]:
+            return counts(curr_start[1:], curr_goal[1:], cnt)
+        else:
+            return counts(curr_start[1:], curr_goal[1:], cnt + 1)
+        
+    return counts(start, goal, 0)
     # END PROBLEM 6
 
 
