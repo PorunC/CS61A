@@ -325,7 +325,7 @@ def max_scoring_num_rolls(dice=six_sided, total_samples=1000):
     1
     """
     # BEGIN PROBLEM 9
-    ma = make_averaged(roll_dice, trials_count)
+    ma = make_averaged(roll_dice, total_samples)
     trials = [ma(i, dice) for i in range(1, 11)]
     return trials.index(max(trials)) + 1
     # END PROBLEM 9
