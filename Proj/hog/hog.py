@@ -166,8 +166,8 @@ def play(strategy0, strategy1, score0=0, score1=0, dice=six_sided,
     """
     who = 0  # Who is about to take a turn, 0 (first) or 1 (second)
     leader = None  # To be used in problem 7
+    msg = None
     # BEGIN PROBLEM 5
-    print("DEBUG: ", score0, score1)
     while score0 < goal and score1 < goal:
         if who == 0:
             roll0 = strategy0(score0, score1)
@@ -182,6 +182,10 @@ def play(strategy0, strategy1, score0=0, score1=0, dice=six_sided,
             pile1 = hog_pile(score1, score0)
             score1 += pile1
             
+        leader, msg = say(score0, score1, leader)
+        if msg:
+            print(msg)
+        
         who = next_player(who)
     # END PROBLEM 5
     # (note that the indentation for the problem 7 prompt (***YOUR CODE HERE***) might be misleading)
@@ -234,7 +238,7 @@ def announce_lead_changes(score0, score1, last_leader=None):
             return 0, None
         else:
             return None, None
-    else:
+    elif last_leader == 1:
         if score0 > score1:
             return 0, f"Player 0 takes the lead by {score0 - score1}"
         elif score0 < score1:
