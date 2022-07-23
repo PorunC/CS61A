@@ -220,7 +220,28 @@ def announce_lead_changes(score0, score1, last_leader=None):
     Player 0 takes the lead by 2
     """
     # BEGIN PROBLEM 6
-    "*** YOUR CODE HERE ***"
+    if last_leader is None:
+        if score0 > score1:
+            return 0, f"Player 0 takes the lead by {score0 - score1}"
+        elif score0 < score1:
+            return 1, f"Player 1 takes the lead by {score1 - score0}"
+        else:
+            return None, None
+    elif last_leader == 0:
+        if score0 < score1:
+            return 1, f"Player 1 takes the lead by {score1 - score0}"
+        elif score0 > score1:
+            return 0, None
+        else:
+            return None, None
+    else:
+        if score0 > score1:
+            return 0, f"Player 0 takes the lead by {score0 - score1}"
+        elif score0 < score1:
+            return 1, None
+        else:
+            return None, None
+        
     # END PROBLEM 6
 
 
