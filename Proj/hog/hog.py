@@ -397,7 +397,8 @@ def final_strategy(score, opponent_score):
     *** YOUR DESCRIPTION HERE ***
     """
     # BEGIN PROBLEM 12
-    return 6  # Remove this line once implemented.
+    return hog_pile_strategy(score, opponent_score)
+    # return 6  # Remove this line once implemented.
     # END PROBLEM 12
 
 ##########################
