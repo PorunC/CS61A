@@ -380,7 +380,14 @@ def hog_pile_strategy(score, opponent_score, threshold=8, num_rolls=6):
     Otherwise, it returns NUM_ROLLS.
     """
     # BEGIN PROBLEM 11
-    return 6  # Remove this line once implemented.
+    tmp = hefty_hogs(score, opponent_score)
+    
+    if hog_pile(score + tmp, opponent_score) > 0:
+        return 0
+    
+    return hefty_hogs_strategy(score, opponent_score, threshold, num_rolls)
+    
+    # return 6  # Remove this line once implemented.
     # END PROBLEM 11
 
 
