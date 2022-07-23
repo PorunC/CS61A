@@ -311,7 +311,7 @@ def make_averaged(original_function, total_samples=1000):
     3.0
     """
     # BEGIN PROBLEM 8
-    "*** YOUR CODE HERE ***"
+    return lambda *args: sum(original_function(*args) for _ in range(total_samples)) / total_samples
     # END PROBLEM 8
 
 
