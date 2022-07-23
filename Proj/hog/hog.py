@@ -110,6 +110,8 @@ def take_turn(num_rolls, player_score, opponent_score, dice=six_sided, goal=GOAL
     assert max(player_score, opponent_score) < goal, 'The game should be over.'
     # BEGIN PROBLEM 3
     if num_rolls == 0:
+        if opponent_score == 0:
+            return 1
         return hefty_hogs(player_score, opponent_score)
     
     return roll_dice(num_rolls, dice)    
@@ -165,7 +167,22 @@ def play(strategy0, strategy1, score0=0, score1=0, dice=six_sided,
     who = 0  # Who is about to take a turn, 0 (first) or 1 (second)
     leader = None  # To be used in problem 7
     # BEGIN PROBLEM 5
-    "*** YOUR CODE HERE ***"
+    print("DEBUG: ", score0, score1)
+    while score0 < goal and score1 < goal:
+        if who == 0:
+            roll0 = strategy0(score0, score1)
+            add0 = take_turn(roll0, score0, score1, dice, goal) 
+            score0 += add0
+            pile0 = hog_pile(score0, score1)
+            score0 += pile0
+        else:
+            roll1 = strategy1(score1, score0)
+            add1 = take_turn(roll1, score1, score0, dice, goal)
+            score1 += add1
+            pile1 = hog_pile(score1, score0)
+            score1 += pile1
+            
+        who = next_player(who)
     # END PROBLEM 5
     # (note that the indentation for the problem 7 prompt (***YOUR CODE HERE***) might be misleading)
     # BEGIN PROBLEM 7
