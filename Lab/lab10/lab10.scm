@@ -10,7 +10,10 @@
     (lambda (x) (+ x num))
 )
 
-(define (composed f g) 'YOUR-CODE-HERE)
+(define (composed f g) 
+    'YOUR-CODE-HERE
+    (lambda (x) (f (g x))) 
+)
 
 (define (square n) (* n n))
 
