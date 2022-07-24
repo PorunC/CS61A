@@ -17,4 +17,7 @@
 
 (define (square n) (* n n))
 
-(define (pow base exp) 'YOUR-CODE-HERE)
+(define (pow base exp) 
+    'YOUR-CODE-HERE
+    
+)
