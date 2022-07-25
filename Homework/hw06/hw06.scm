@@ -27,7 +27,15 @@
     )
 )
 
-(define (interleave lst1 lst2) 'YOUR-CODE-HERE)
+(define (interleave lst1 lst2)
+    'YOUR-CODE-HERE
+    (if (null? lst1)
+        lst2
+        (cons (car lst1)
+            (interleave lst2 (cdr lst1))
+        )
+    )
+)
 
 (define (my-filter func lst) 'YOUR-CODE-HERE)
 
