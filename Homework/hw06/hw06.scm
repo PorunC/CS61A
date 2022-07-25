@@ -37,6 +37,17 @@
     )
 )
 
-(define (my-filter func lst) 'YOUR-CODE-HERE)
+(define (my-filter func lst) 
+    'YOUR-CODE-HERE
+    (if (null? lst)
+        lst
+        (if (func (car lst))
+            (cons (car lst)
+                (my-filter func (cdr lst))
+            )
+            (my-filter func (cdr lst))
+        )
+    )
+)
 
 (define (no-repeats lst) 'YOUR-CODE-HERE)
