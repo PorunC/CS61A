@@ -50,4 +50,25 @@
     )
 )
 
-(define (no-repeats lst) 'YOUR-CODE-HERE)
+(define (no-repeats lst)
+    'YOUR-CODE-HERE
+    (define (member item items)
+        (if (null? items)
+            #f
+            (if (equal? item (car items))
+                #t
+                (member item (cdr items))
+            )
+        )
+    )
+    
+    (if (null? lst)
+        lst
+        (if (member (car lst) (cdr lst))
+            (no-repeats (cdr lst))
+            (cons (car lst)
+                (no-repeats (cdr lst))
+            )
+        )
+    )
+)
