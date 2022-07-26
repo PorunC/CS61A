@@ -85,14 +85,18 @@ class Buffer:
         """
 
         # BEGIN
-        self.buffer = []
-        token_buffer = self.create_generator(source)
-        for token in token_buffer:
-            self.buffer.append(token)
+        self.lines = []
+        self.curr_line = []
+        self.token = self.create_generator(source)
+        self.current = next(self.token, None)
+        # self.buffer = []
+        # token_buffer = self.create_generator(source)
+        # for token in token_buffer:
+        #     self.buffer.append(token)
         
-        self.current = None
-        if self.buffer:            
-            self.current = self.buffer[0]
+        # self.current = None
+        # if self.buffer:            
+        #     self.current = self.buffer[0]
         # END
 
     def create_generator(self, source):
@@ -114,14 +118,22 @@ class Buffer:
         the current token to be None.
         """
         # BEGIN
-        res = None
-        if self.buffer:
-            res = self.buffer.pop(0)
-        if self.buffer:    
-            self.current = self.buffer[0]
+        current = self.current
+        if current is EOL_TOKEN:
+            self.lines.append(self.curr_line)
+            self.curr_line = []
         else:
-            self.current = None
-        return res
+            self.curr_line.append(current)
+        self.current = next(self.token, None)
+        return current
+        # res = None
+        # if self.buffer:
+        #     res = self.buffer.pop(0)
+        # if self.buffer:    
+        #     self.current = self.buffer[0]
+        # else:
+        #     self.current = None
+        # return res
         # END
 
     def end_of_line(self):
