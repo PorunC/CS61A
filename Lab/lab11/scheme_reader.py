@@ -44,11 +44,11 @@ def scheme_read(src):
     val = src.pop_first()  # Get and remove the first token
     if val == 'nil':
         # BEGIN PROBLEM 2
-        "*** YOUR CODE HERE ***"
+        return nil
         # END PROBLEM 2
     elif val == '(':
         # BEGIN PROBLEM 2
-        "*** YOUR CODE HERE ***"
+        return read_tail(src)
         # END PROBLEM 2
     elif val == "'":
         # BEGIN PROBLEM 3
@@ -75,11 +75,12 @@ def read_tail(src):
             raise SyntaxError('unexpected end of file')
         elif src.current == ')':
             # BEGIN PROBLEM 2
-            "*** YOUR CODE HERE ***"
+            src.pop_first()
+            return nil
             # END PROBLEM 2
         else:
             # BEGIN PROBLEM 2
-            "*** YOUR CODE HERE ***"
+            return Pair(scheme_read(src), read_tail(src))            
             # END PROBLEM 2
     except EOFError:
         raise SyntaxError('unexpected end of file')
