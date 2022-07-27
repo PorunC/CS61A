@@ -252,8 +252,7 @@ def do_mu_form(expressions, env):
     formals = expressions.first
     validate_formals(formals)
     # BEGIN PROBLEM 11
-    body = expressions.rest
-    return MuProcedure(formals, body, env)
+    return MuProcedure(formals, expressions.rest)
     # END PROBLEM 11
 
 
