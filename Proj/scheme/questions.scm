@@ -7,8 +7,20 @@
 ;; Returns a list of two-element lists
 (define (enumerate s)
   ; BEGIN PROBLEM 15
-  'replace-this-line
+  (define (dfs i s)
+    (if (null? s)
+      nil
+      (cons (list i (car s)) (dfs (+ i 1) (cdr s)))
+    )
   )
+
+  (dfs 0 s)
+  
+  ; (if (null? s)
+  ;   nil
+  ;   (cons (list (car s)) (enumerate (cdr s)))
+  ; )
+)
   ; END PROBLEM 15
 
 ;; Problem 16
