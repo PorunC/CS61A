@@ -8,18 +8,12 @@
 (define (enumerate s)
   ; BEGIN PROBLEM 15
   (define (dfs i s)
-    (if (null? s)
-      nil
+    (if (null? s) nil
       (cons (list i (car s)) (dfs (+ i 1) (cdr s)))
     )
   )
 
   (dfs 0 s)
-
-  ; (if (null? s)
-  ;   nil
-  ;   (cons (list (car s)) (enumerate (cdr s)))
-  ; )
 )
   ; END PROBLEM 15
 
@@ -29,10 +23,10 @@
 ;; the merged lists.
 (define (merge inorder? list1 list2)
   ; BEGIN PROBLEM 16
-  (if (null? list1)
-    list2
-    (if (null? list2)
-      list1
+  (cond
+    ((null? list1) list2)
+    ((null? list2) list1)
+    (else
       (if (inorder? (car list1) (car list2))
         (cons (car list1) (merge inorder? (cdr list1) list2))
         (cons (car list2) (merge inorder? list1 (cdr list2)))
