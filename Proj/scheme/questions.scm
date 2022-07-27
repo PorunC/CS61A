@@ -41,46 +41,69 @@
 
 ;; Returns a function that checks if an expression is the special form FORM
 (define (check-special form)
-  (lambda (expr) (equal? form (car expr))))
+  (lambda (expr) (equal? form (car expr)))
+)
 
 (define lambda? (check-special 'lambda))
 (define define? (check-special 'define))
 (define quoted? (check-special 'quote))
 (define let?    (check-special 'let))
 
+(define (zip pairs)
+  (list (map car pairs) (map cadr pairs))
+)
+
 ;; Converts all let special forms in EXPR into equivalent forms using lambda
 (define (let-to-lambda expr)
-  (cond ((atom? expr)
+  (cond 
+    ((atom? expr)
+      ; BEGIN PROBLEM 17
+      expr
+      ; END PROBLEM 17
+    )
+    ((quoted? expr)
+      ; BEGIN PROBLEM 17
+      expr
+      ; END PROBLEM 17
+    )
+    ((or (lambda? expr)
+          (define? expr))
+      (let ((form   (car expr))
+            (params (cadr expr))
+            (body   (cddr expr)))
         ; BEGIN PROBLEM 17
-        'replace-this-line
-        ; END PROBLEM 17
+        (cons form 
+          (cons 
+            (map let-to-lambda params)
+            (map let-to-lambda body)
+          )
         )
-      ((quoted? expr)
-        ; BEGIN PROBLEM 17
-        'replace-this-line
         ; END PROBLEM 17
+      )
+    )
+    ((let? expr)
+      (let ((values (cadr expr))
+            (body   (cddr expr)))
+        ; BEGIN PROBLEM 17
+        (cons 
+          (cons 'lambda 
+            (cons 
+              (car (zip (let-to-lambda values)))
+              (let-to-lambda body)
+            )
+          ) 
+          (cadr (zip (let-to-lambda values)))
         )
-      ((or (lambda? expr)
-            (define? expr))
-        (let ((form   (car expr))
-              (params (cadr expr))
-              (body   (cddr expr)))
-          ; BEGIN PROBLEM 17
-          'replace-this-line
-          ; END PROBLEM 17
-          ))
-      ((let? expr)
-        (let ((values (cadr expr))
-              (body   (cddr expr)))
-          ; BEGIN PROBLEM 17
-          'replace-this-line
-          ; END PROBLEM 17
-          ))
-      (else
-        ; BEGIN PROBLEM 17
-        'replace-this-line
         ; END PROBLEM 17
-        )))
+      )
+    )
+    (else
+      ; BEGIN PROBLEM 17
+      (map let-to-lambda expr)
+      ; END PROBLEM 17
+    )
+  )
+)
 
 
 
