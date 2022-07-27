@@ -15,7 +15,7 @@
   )
 
   (dfs 0 s)
-  
+
   ; (if (null? s)
   ;   nil
   ;   (cons (list (car s)) (enumerate (cdr s)))
@@ -29,8 +29,17 @@
 ;; the merged lists.
 (define (merge inorder? list1 list2)
   ; BEGIN PROBLEM 16
-  'replace-this-line
+  (if (null? list1)
+    list2
+    (if (null? list2)
+      list1
+      (if (inorder? (car list1) (car list2))
+        (cons (car list1) (merge inorder? (cdr list1) list2))
+        (cons (car list2) (merge inorder? list1 (cdr list2)))
+      )
+    )
   )
+)
   ; END PROBLEM 16
 
 
