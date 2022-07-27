@@ -34,10 +34,13 @@ def scheme_eval(expr, env, _=None):  # Optional third argument is ignored
         return scheme_forms.SPECIAL_FORMS[first](rest, env)
     else:
         # BEGIN PROBLEM 3
-        # proceducre = scheme_eval(first, env)
-        # args = rest.map(lambda x: scheme_eval(x, env))
-        # return scheme_apply(proceducre, args, env)
-        return scheme_apply(scheme_eval(first, env), rest.map(lambda x: scheme_eval(x, env)), env)
+        # To find out the env and env's parent where the procedure is defined
+        proceducre = scheme_eval(first, env)
+        # Evalute the rest of the expression recursively
+        args = rest.map(lambda x: scheme_eval(x, env))
+        # return the result of applying the procedure to the arguments
+        return scheme_apply(proceducre, args, env)
+        # return scheme_apply(scheme_eval(first, env), rest.map(lambda x: scheme_eval(x, env)), env)
         # END PROBLEM 3
 
 
