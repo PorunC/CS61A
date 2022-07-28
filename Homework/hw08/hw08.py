@@ -49,4 +49,4 @@ def match_time(text):
     >>> match_time("The tennis score was 40:30.")
     False
     """
-    return bool(re.search(__________, text))
+    return bool(re.search(r"\b(([01]?\d)|(2[0-3])):[0-5]\d(AM|PM|am|pm)?\b", text))
