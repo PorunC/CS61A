@@ -50,6 +50,24 @@
 
 (define (get-first-from-kwlist kwlist key)
   'YOUR-CODE-HERE
+  (if (null? (get-keys-kwlist kwlist)) 
+    nil
+    (let 
+      (
+        (values (get-values-kwlist kwlist))
+        (keys (get-keys-kwlist kwlist))
+      )
+      (cond 
+        (
+          (equal? (car keys) key) 
+          (car values)
+        )
+        (else 
+          (get-first-from-kwlist (make-kwlist (cdr keys) (cdr values)) key)
+        )
+      )
+    )
+  )
 )
 
 (define (prune-expr expr)
