@@ -21,7 +21,10 @@ branches: ", [" (tree_node ",")* tree_node "]"
 
 rstring: "r\"" regex* "\""
 
-?regex: character | word
+?regex: group | pipe | character | word
+
+group: "(" regex ")"
+pipe: regex "|" regex
 
 character: LETTER | NUMBER
 word: WORD
