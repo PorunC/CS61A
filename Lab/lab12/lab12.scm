@@ -63,7 +63,11 @@
 )
 
 (define (student-attend-class student class)
-  'YOUR-CODE-HERE)
+  'YOUR-CODE-HERE
+  (define new_class (cons class (student-get-classes student)))
+  (define name (student-get-name student))
+  (student-create name new_class)
+)
 
 (define (teacher-hold-class teacher)
   'YOUR-CODE-HERE)
