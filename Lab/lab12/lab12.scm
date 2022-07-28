@@ -21,6 +21,11 @@
 
 (define (closer-city lat lon city-a city-b)
   'YOUR-CODE-HERE
+  (define x (make-city 'x lat lon))
+  (if (< (distance x city-a) (distance x city-b))
+    (get-name city-a)
+    (get-name city-b)
+  )
 )
 
 ; Teacher and Student Abstractions
