@@ -63,7 +63,13 @@
           (car values)
         )
         (else 
-          (get-first-from-kwlist (make-kwlist (cdr keys) (cdr values)) key)
+          (get-first-from-kwlist 
+            (make-kwlist 
+              (cdr keys) 
+              (cdr values)
+            ) 
+            key
+          )
         )
       )
     )
@@ -71,10 +77,18 @@
 )
 
 (define (prune-expr expr)
-  (define (prune-helper lst) 
+  (define (prune-helper lst)
     'YOUR-CODE-HERE
+    (if (or (null? lst) (null? (cdr lst))) 
+      lst
+      (cons 
+        (car lst) 
+        (prune-helper (cdr (cdr lst)))
+      )
+    )
   )
   'YOUR-CODE-HERE
+  (cons (car expr) (prune-helper (cdr expr)))
 )
 
 (define (curry-cook formals body) 
