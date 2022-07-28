@@ -14,11 +14,11 @@ import scheme_forms
 def scheme_eval(expr, env, _=None):  # Optional third argument is ignored
     """Evaluate Scheme expression EXPR in Frame ENV.
 
-    >>> expr = read_line('(+ 2 2)')
+    >>> expr = read_line('(+ 2 (+ 2 2))')
     >>> expr
-    Pair('+', Pair(2, Pair(2, nil)))
+    Pair('+', Pair(2, Pair(Pair('+', Pair(2, Pair(2, nil))), nil)))
     >>> scheme_eval(expr, create_global_frame())
-    4
+    8
     """
     # Evaluate atoms
     if scheme_symbolp(expr):
@@ -96,7 +96,7 @@ def eval_all(expressions, env):
     while expressions.rest is not nil:
         scheme_eval(expressions.first, env)
         expressions = expressions.rest
-    return scheme_eval(expressions.first, env)  # replace this with lines of your own code
+    return scheme_eval(expressions.first, env, True) 
     # END PROBLEM 6
 
 
