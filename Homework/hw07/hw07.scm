@@ -93,6 +93,10 @@
 
 (define (curry-cook formals body) 
   'YOUR-CODE-HERE
+  (if (null? formals)
+    body
+    `(lambda (,(car formals)) ,(curry-cook (cdr formals) body))
+  )
 )
 
 (define (curry-consume curries args)
