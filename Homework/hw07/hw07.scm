@@ -42,6 +42,10 @@
 
 (define (add-to-kwlist kwlist key value)
   'YOUR-CODE-HERE
+  (make-kwlist
+    (append (get-keys-kwlist kwlist) (list key))
+    (append (get-values-kwlist kwlist) (list value))
+  )
 )
 
 (define (get-first-from-kwlist kwlist key)
