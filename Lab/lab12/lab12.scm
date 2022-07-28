@@ -74,7 +74,21 @@
 )
 
 (define (teacher-hold-class teacher)
-  'YOUR-CODE-HERE)
+  'YOUR-CODE-HERE
+  (define name (teacher-get-name teacher))
+  (define class (teacher-get-class teacher))
+  (define students (teacher-get-students teacher))
+  (define new_students
+    (map
+      (lambda (student) 
+        (student-attend-class student class)
+      )
+      students
+    )
+  )
+  
+  (teacher-create name class new_students)
+)
 
 ; Rational Abstraction
 ; Helpers
