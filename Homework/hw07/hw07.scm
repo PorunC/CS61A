@@ -101,4 +101,11 @@
 
 (define (curry-consume curries args)
   'YOUR-CODE-HERE
+  (if (null? args)
+    curries
+    (curry-consume 
+      (curries (car args)) 
+      (cdr args)
+    )
+  )
 )
