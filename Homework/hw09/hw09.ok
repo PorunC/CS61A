@@ -1,0 +1,15 @@
+{
+    "name": "Homework 9",
+    "endpoint": "cal/cs61a/sp22/hw09",
+    "src": [],
+    "tests": {},
+    "default_tests": [],
+    "protocols": [
+        "restore",
+        "file_contents",
+        "grading",
+        "analytics",
+        "unlock",
+        "backup"
+    ]
+}
