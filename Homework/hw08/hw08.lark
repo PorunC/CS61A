@@ -8,12 +8,12 @@ link: "Link(" link_first link_rest? ")"
 %import common.NUMBER
 
 
-tree_node: "null"
+tree_node: "Tree(" label branches? ")"
 
 
-?label: "null"
+?label: NUMBER
 
-branches: "null"
+branches: ", [" (tree_node ",")* tree_node "]"
 
 %ignore /\s+/
 %import common.NUMBER
