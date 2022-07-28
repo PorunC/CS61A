@@ -30,25 +30,37 @@
 
 ; Teacher and Student Abstractions
 (define (student-create name classes)
-  (cons name classes))
+  (cons name classes)
+)
 
 (define (teacher-create name class students)
-  (cons name (cons class students)))
+  (cons name (cons class students))
+)
 
 (define (student-get-name student)
-  'YOUR-CODE-HERE)
+  'YOUR-CODE-HERE
+  (car student)
+)
 
 (define (student-get-classes student)
-  'YOUR-CODE-HERE)
+  'YOUR-CODE-HERE
+  (cdr student)
+)
 
 (define (teacher-get-name teacher)
-  'YOUR-CODE-HERE)
+  'YOUR-CODE-HERE
+  (car teacher)
+)
 
 (define (teacher-get-class teacher)
-  'YOUR-CODE-HERE)
+  'YOUR-CODE-HERE
+  (car (cdr teacher))
+)
 
 (define (teacher-get-students teacher)
-  'YOUR-CODE-HERE)
+  'YOUR-CODE-HERE
+  (cdr (cdr teacher))
+)
 
 (define (student-attend-class student class)
   'YOUR-CODE-HERE)
