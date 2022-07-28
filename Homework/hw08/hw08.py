@@ -23,7 +23,8 @@ def cs_classes(post):
     >>> cs_classes("What are some good CS upper division courses? I was thinking about CS 161 or CS 169a")
     True
     """
-    return bool(re.search(__________, post))
+    return bool(re.search(r"(CS|EE|cs|ee)\s?\d+[a-cA-C]?", post))
+    # return bool(re.search(r"(CS|cs|EE|ee)(\d+([A-C]|[a-c])|(\s|)\d+)", post))
 
 
 import re
