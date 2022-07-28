@@ -1,8 +1,8 @@
-link: "null"
+link: "Link(" link_first link_rest? ")"
 
-?link_first: "null"
+?link_first: link|NUMBER
 
-?link_rest: "null"
+?link_rest: ", "link
 
 %ignore /\s+/
 %import common.NUMBER
