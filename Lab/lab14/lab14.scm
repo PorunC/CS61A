@@ -54,4 +54,19 @@
 
 (define (caddr s) (car (cddr s)))
 
-(define (swap expr) 'YOUR-CODE-HERE)
+(define (swap expr) 
+  'YOUR-CODE-HERE
+  (let 
+    (
+      (op (car expr))
+      (first (car (cdr expr)))
+      (second (caddr expr))
+      (rest (cdr (cddr expr)))
+    )
+    (if 
+      (> (eval second) (eval first))
+      (cons op (cons second (cons first rest)))
+      expr
+    )
+  )
+)
