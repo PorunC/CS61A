@@ -1,4 +1,19 @@
-(define (split-at lst n) 'YOUR-CODE-HERE)
+(define (split-at lst n)
+  'YOUR-CODE-HERE
+  (cond 
+    ((= n 0) (cons nil lst))
+    ((null? lst) (cons lst nil))
+    (else 
+      (let
+        ((rec (split-at (cdr lst) (- n 1))))
+        (cons 
+          (cons (car lst) (car rec))
+          (cdr rec)
+        )
+      )
+    )
+  )
+)
 
 ; Tree Abstraction
 ; Constructs tree given label and list of branches
