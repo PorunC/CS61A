@@ -29,7 +29,24 @@
 ; Returns #t if t is a leaf, #f otherwise
 (define (is-leaf t) (null? (branches t)))
 
-(define (filter-odd t) 'YOUR-CODE-HERE)
+(define (filter-odd t) 
+  'YOUR-CODE-HERE
+  (cond
+		((null? t) nil)
+		((odd? (label t))
+      (tree
+        (label t)
+        (map filter-odd (branches t))
+      )
+    )
+		(else
+      (tree 
+        nil
+        (map filter-odd (branches t))
+      )
+    )
+	)
+)
 
 (define (cddr s) (cdr (cdr s)))
 
