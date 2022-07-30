@@ -303,6 +303,24 @@ class WallAnt(Ant):
 
 # BEGIN Problem 7
 # The HungryAnt Class
+class HungryAnt(Ant):
+    name = 'Hungry'
+    food_cost = 4
+    implemented = True
+    time_to_chew = 3
+    
+    def __init__(self, health=1, chew_timer=0):
+        super().__init__(health)
+        self.chew_timer = chew_timer
+        
+    def action(self, gamestate):
+        if self.chew_timer == 0:
+            bee = random_bee(self.place.bees)
+            if bee:
+                bee.reduce_health(bee.health)
+                self.chew_timer = HungryAnt.time_to_chew
+        else:
+            self.chew_timer -= 1
 # END Problem 7
 
 
