@@ -133,7 +133,19 @@ class Ant(Insect):
             place.ant = self
         else:
             # BEGIN Problem 8
-            assert place.ant is None, 'Two ants in {0}'.format(place)
+            if place.ant.is_container and not self.is_container:
+                if place.ant.can_contain(self):
+                    place.ant.store_ant(self)
+                else:
+                    assert place.ant is None, 'Two ants in {0}'.format(place)
+            elif self.is_container and not place.ant.is_container:
+                if self.can_contain(place.ant):
+                    self.store_ant(place.ant)
+                    place.ant = self
+                else:
+                    assert place.ant is None, 'Two ants in {0}'.format(place)
+            else:
+                assert place.ant is None, 'Two ants in {0}'.format(place)
             # END Problem 8
         Insect.add_to(self, place)
 
@@ -329,6 +341,7 @@ class ContainerAnt(Ant):
     ContainerAnt can share a space with other ants by containing them.
     """
     is_container = True
+    food_cost = 4
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -336,12 +349,16 @@ class ContainerAnt(Ant):
 
     def can_contain(self, other):
         # BEGIN Problem 8
-        "*** YOUR CODE HERE ***"
+        if not self.ant_contained and not other.is_container:
+            return True
+        else:
+            return False
         # END Problem 8
 
     def store_ant(self, ant):
         # BEGIN Problem 8
-        "*** YOUR CODE HERE ***"
+        if self.can_contain(ant):
+            self.ant_contained = ant
         # END Problem 8
 
     def remove_ant(self, ant):
@@ -361,7 +378,8 @@ class ContainerAnt(Ant):
 
     def action(self, gamestate):
         # BEGIN Problem 8
-        "*** YOUR CODE HERE ***"
+        if self.ant_contained:
+            self.ant_contained.action(gamestate)
         # END Problem 8
 
 
@@ -372,7 +390,10 @@ class BodyguardAnt(ContainerAnt):
     food_cost = 4
     # OVERRIDE CLASS ATTRIBUTES HERE
     # BEGIN Problem 8
-    implemented = False   # Change to True to view in the GUI
+    implemented = True   # Change to True to view in the GUI
+    
+    def __init__(self, health=2):
+        super().__init__(health)
     # END Problem 8
 
 # BEGIN Problem 9
